@@ -1,0 +1,128 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Chatbot - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Chatbot Floating Button -->
+<button id="chatbot-toggle" 
+        style="position: fixed; bottom: 20px; right: 20px; 
+               background: #007bff; color: white; border: none; 
+               border-radius: 50%; width: 55px; height: 55px; 
+               font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+               cursor: pointer; z-index: 1000;">
+  💬
+</button>
+
+<!-- Chatbot Container -->
+<div id="chatbot-container" style="display: none;">
+  <div id="chatbot-header">
+    Chat with My AI Assistant
+    <button id="chatbot-close" 
+            style="float: right; background: transparent; 
+                   border: none; color: white; font-size: 16px; 
+                   cursor: pointer;">×</button>
+  </div>
+
+  <div id="chatbot-messages"></div>
+
+  <div id="chatbot-input-area">
+    <input id="chatbot-input" type="text" placeholder="Type a message...">
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("chatbot-toggle");
+    const container = document.getElementById("chatbot-container");
+    const closeBtn = document.getElementById("chatbot-close");
+    const input = document.getElementById("chatbot-input");
+    const sendBtn = document.getElementById("chatbot-send");
+    const messages = document.getElementById("chatbot-messages");
+
+    // Show default greeting once
+    function addGreeting() {
+        if (messages.children.length === 0) {
+            const botBubble = document.createElement("div");
+            botBubble.className = "bot";
+            botBubble.textContent = "Hello 👋! Ask me anything.";
+            botBubble.style = "background:#374151;color:white;padding:8px 12px;border-radius:12px;margin:5px 0;align-self:flex-start;max-width:80%;";
+            messages.appendChild(botBubble);
+        }
+    }
+
+    // Toggle chatbot
+    toggle.addEventListener("click", () => {
+        container.style.display = (container.style.display === "none" || !container.style.display) ? "flex" : "none";
+        addGreeting();
+    });
+
+    closeBtn.addEventListener("click", () => container.style.display = "none");
+
+    async function sendMessage() {
+        const userMsg = input.value.trim();
+        if (!userMsg) return;
+
+        // Remove default greeting if present
+        if (messages.children.length === 1 && messages.children[0].textContent.includes("Hello")) {
+            messages.innerHTML = "";
+        }
+
+        // User bubble
+        const userBubble = document.createElement("div");
+        userBubble.className = "user";
+        userBubble.textContent = userMsg;
+        userBubble.style = "background:#0d9488;color:white;padding:8px 12px;border-radius:12px;margin:5px 0;align-self:flex-end;max-width:80%;";
+        messages.appendChild(userBubble);
+
+        input.value = "";
+        messages.scrollTop = messages.scrollHeight;
+
+        // Send to backend
+        try {
+            const response = await fetch("/chatbot/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": getCookie("csrftoken")
+                },
+                body: JSON.stringify({ message: userMsg })
+            });
+
+            const data = await response.json();
+
+            const botBubble = document.createElement("div");
+            botBubble.className = "bot";
+            botBubble.textContent = data.reply || "⚠️ No response received";
+            botBubble.style = "background:#374151;color:white;padding:8px 12px;border-radius:12px;margin:5px 0;align-self:flex-start;max-width:80%;";
+            messages.appendChild(botBubble);
+            messages.scrollTop = messages.scrollHeight;
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    input.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
+});
+
+// CSRF helper
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";").map(c => c.trim());
+        for (let cookie of cookies) {
+            if (cookie.startsWith(name + "=")) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+
+
+{% endblock %}
+
+

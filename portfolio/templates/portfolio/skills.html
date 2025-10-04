@@ -1,0 +1,30 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Skills - Portfolio{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h1 class="text-4xl font-bold text-center mb-4">My Skills</h1>
+        <p class="text-xl text-gray-600 text-center mb-12">Technologies and tools I work with</p>
+        
+        <div class="max-w-3xl mx-auto">
+            {% for skill in skills %}
+            <div class="mb-8">
+                <div class="flex justify-between mb-2">
+                    <span class="font-semibold">{{ skill.name }}</span>
+                    <span class="text-gray-600">{{ skill.percentage }}%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="skill-bar h-3 rounded-full bg-indigo-600" data-percentage="{{ skill.percentage }}"></div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="text-center py-12">
+                <p class="text-gray-600 text-xl">No skills added yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

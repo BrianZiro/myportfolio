@@ -1,0 +1,127 @@
+{
+  "bio": "Brian Ziro is a first-year Actuarial Science student at Karatina University, passionate about coding, AI, and data science. He aspires to become a backend developer specializing in Django and a professional data scientist. Brian believes in using technology to solve real-world problems, especially in education and community development.",
+  
+  "personal_info": {
+    "full_name": "Brian Ziro",
+    "location": "Kilifi, Kenya",
+    "education": {
+      "primary": "Mwatate Junior Academy",
+      "secondary": "Malindi High School",
+      "university": "Karatina University (B.Sc. Actuarial Science, 1st Year)"
+    },
+    "certifications": [
+      "Advanced Excel",
+      "Python for Data Science",
+      "Data Analysis with Python"
+    ]
+  },
+
+  "skills": {
+    "technical": [
+      "Actuarial Science",
+      "Data Science",
+      "Machine Learning",
+      "Deep Learning",
+      "Natural Language Processing (NLP)",
+      "Computer Vision",
+      "Python (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn)",
+      "Django (Backend Development)",
+      "REST API Development",
+      "WebSocket / Real-Time Chat",
+      "SQL / Database Management",
+      "Excel Dashboards & Reporting",
+      "Power BI",
+      "Data Cleaning, Visualization & Storytelling"
+    ],
+    "soft_skills": [
+      "Problem-solving",
+      "Analytical thinking",
+      "Leadership",
+      "Time management",
+      "Communication",
+      "Creativity",
+      "Team collaboration"
+    ]
+  },
+
+  "projects": [
+    {
+      "name": "EduLens AI",
+      "description": "An AI-powered platform for tracking and analyzing educational performance in rural schools, aimed at improving governance and student outcomes."
+    },
+    {
+      "name": "Phone Data Analysis",
+      "description": "A Kaggle project analyzing phone usage patterns to extract insights and trends."
+    },
+    {
+      "name": "Lung Cancer Analysis",
+      "description": "A Kaggle project analyzing medical datasets to detect patterns related to lung cancer."
+    },
+    {
+      "name": "Loan Amortization and Sinking Fund System",
+      "description": "A Django-based financial system for calculating loan amortization schedules and managing sinking funds, including report visualization and potential M-Pesa integration."
+    },
+    {
+      "name": "DigiSoko – Campus Marketplace App",
+      "description": "An application for students to buy and sell goods/services on campus efficiently."
+    },
+    {
+      "name": "Karatina University Innovation Club Website",
+      "description": "A Django-powered website for managing the Innovation Club's activities, members, and projects."
+    },
+    {
+      "name": "M-Pesa Integration Projects",
+      "description": "Building systems to handle payments and transactions using M-Pesa API, integrated with Django backend."
+    }
+  ],
+
+  "achievements": [
+    "CEO of Ziro Technologies, a company focused on website design and data analytics.",
+    "Member of the Actuarial Society of Karatina University.",
+    "Member of the Applied Statistics Club of Karatina University.",
+    "Member of the Innovation Club at Karatina University.",
+    "Completed multiple Kaggle projects in data analysis.",
+    "Certified in Advanced Excel, Python for Data Science, and Data Analysis with Python."
+  ],
+
+  "interests": [
+    "Artificial Intelligence and Machine Learning",
+    "Backend web development",
+    "Data science and analytics",
+    "Coding challenges and learning new technologies",
+    "Community development and educational initiatives",
+    "Building AI-powered applications for social impact"
+  ],
+
+  "goals": [
+    "Become a backend developer with Django specialization.",
+    "Become a professional data scientist.",
+    "Launch community projects in Kilifi, like the Waste-for-WiFi Hub.",
+    "Develop AI-powered educational platforms to improve learning outcomes.",
+    "Master Python, Django, and advanced machine learning techniques.",
+    "Contribute to open-source projects and tech communities."
+  ],
+
+  "community_projects": [
+    {
+      "name": "Waste-for-WiFi Community Hub",
+      "description": "A project in Kilifi where community members can exchange collected waste for internet access, promoting both education and environmental responsibility."
+    }
+  ],
+
+  "personality_traits": [
+    "Passionate about technology and coding.",
+    "Curious and eager to learn.",
+    "Analytical and detail-oriented.",
+    "Enjoys explaining concepts in simple, straightforward ways.",
+    "Creative thinker with a strong problem-solving mindset.",
+    "Persistent and disciplined in studying and project work."
+  ],
+
+  "fun_facts": [
+    "Brian enjoys working on Django and AI projects.",
+    "He likes to keep explanations and code simple yet effective.",
+    "He is a strong believer that coding will elevate his future career.",
+    "He is active in campus clubs and takes initiative in community projects."
+  ]
+}
