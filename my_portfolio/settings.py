@@ -18,7 +18,7 @@ load_dotenv()
 # SECURITY
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['portfoliobrianziro.onrender.com','www.portfoliobrianziro.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['BrianZiro.pythonanywhere.com']
 
 # Installed apps
 INSTALLED_APPS = [
